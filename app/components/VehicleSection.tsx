@@ -114,7 +114,7 @@ const vehicles: Vehicle[] = [
     price: "₹ 68,000 /-",
     description: "Classic styling with dependable everyday performance.",
     brand: "/img/PRODUCTS/MC/SPORT/TVS-Sport-logo.svg",
-    picture: "/img/PRODUCTS/MC/SPORT/TVS-sport.webp",
+    picture: "/img/PRODUCTS/MC/SPORT/TVS-Sport.webp",
   },
   {
     name: "TVS Star City Plus",
@@ -125,7 +125,7 @@ const vehicles: Vehicle[] = [
     price: "₹ 75,000 /-",
     description: "Comfortable and practical for daily city use.",
     brand: "/img/PRODUCTS/MC/STAR/TVS-Star-City-logo.svg",
-    picture: "/img/PRODUCTS/MC/STAR/TVS-STAR-City.webp",
+    picture: "/img/PRODUCTS/MC/STAR/TVS-STAR-CITY.webp",
   },
   {
     name: "TVS Radeon",
