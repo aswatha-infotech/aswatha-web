@@ -125,7 +125,7 @@ const vehicles: Vehicle[] = [
     price: "₹ 75,000 /-",
     description: "Comfortable and practical for daily city use.",
     brand: "/img/PRODUCTS/MC/STAR/TVS-Star-City-logo.svg",
-    picture: "/img/PRODUCTS/MC/STAR/TVS-STAR-CITY.webp",
+    picture: "/img/PRODUCTS/MC/STAR/TVS-STAR-CIty.webp",
   },
   {
     name: "TVS Radeon",
