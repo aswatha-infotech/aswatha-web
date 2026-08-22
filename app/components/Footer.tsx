@@ -8,8 +8,8 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold text-white">Aswatha TVS</h4>
             <p className="mt-3 text-sm text-slate-400">Authorised Main Dealer of TVS Motor Company</p>
-            <p className="mt-4 text-sm text-slate-400">1273 Trichy Road, Nadar Colony, Sungam, Coimbatore - 641 018</p>
-            <p className="mt-1 text-sm text-slate-400">Phone: +91 12345 67890</p>
+            <p className="mt-4 text-sm text-slate-400">1274 Trichy Road, Sungam, Coimbatore - 641 018</p>
+            <p className="mt-1 text-sm text-slate-400">Phone: +91 82700 15000</p>
           </div>
 
           <div>
