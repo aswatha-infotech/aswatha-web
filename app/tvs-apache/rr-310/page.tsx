@@ -204,7 +204,7 @@ export default function ApacheRTXPage() {
 
       <main className="pt-18">
         <section className="relative">
-          <img src="/img/HERO/17.webp" alt="TVS Apache RTX hero" className="h-[calc(100vh-96px)] w-full object-cover" />
+          <img src="/img/HERO/17.webp" alt="TVS Apache RTX hero" className="h-auto w-full object-contain" />
         </section>
 
         <section className="relative -mt-22 mb-10 px-4 sm:px-6 lg:px-8">
@@ -233,7 +233,7 @@ export default function ApacheRTXPage() {
                 </div>
               </div> */}
 
-              <div className="rounded-[32px] border border-slate-200 bg-slate-50 p-6 shadow-sm">
+              <div className="rounded-[32px] border border-slate-200 bg-slate-50 p-4 shadow-sm sm:p-6">
                 <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
                   <div className="space-y-4">
                     <div>
@@ -259,7 +259,7 @@ export default function ApacheRTXPage() {
                       </div>
                     </div>
 
-                    <div className="grid gap-3 sm:grid-cols-3">
+                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                       {activeColorGroup.options.map((color) => (
                         <button
                           key={color.name}
@@ -293,7 +293,7 @@ export default function ApacheRTXPage() {
                     <div>
                       <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Preview</p>
                       <div className="mt-5 overflow-hidden rounded-[28px] bg-slate-900 shadow-lg">
-                        <img src={selectedColorImage} alt={`Apache RTX ${selectedColor.name}`} className="h-100 w-full object-cover" />
+                        <img src={selectedColorImage} alt={`Apache RTX ${selectedColor.name}`} className="h-64 w-full object-contain sm:h-80 lg:h-100" />
                       </div>
                     </div>
                   </div>

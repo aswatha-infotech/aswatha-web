@@ -5,6 +5,14 @@ import Navigation from "./Navigation";
 
 const slides = [
   {
+    name: "Aswatha TVS",
+    tagline: "TVS Dealer in Sungam, COimbatore",
+    badge: "Racing DNA",
+    range: "310cc",
+    topSpeed: "160 km/h",
+    image: "/img/HERO/0.webp",
+  },
+  {
     name: "Apache RR310",
     tagline: "A bold streetfighter crafted for riders who seek power, precision and presence.",
     badge: "Racing DNA",
@@ -108,7 +116,7 @@ export default function HeroCarousel() {
   return (
     <div className="bg-white">
       <Navigation />
-      <section className="relative mt-14 h-[70vh] overflow-hidden bg-white sm:mt-20 sm:h-[80vh] lg:mt-18 lg:h-[90vh]">
+      <section className="relative mt-14 h-[70vh] overflow-hidden bg-white sm:mt-20 sm:h-[80vh] lg:mt-18 lg:h-[80vh]">
         <div className="absolute inset-0">
           {slides.map((slide, index) => (
             <div
@@ -117,12 +125,12 @@ export default function HeroCarousel() {
                 index === activeIndex ? "opacity-100" : "pointer-events-none opacity-0"
               }`}
             >
-              <img src={slide.image} alt={slide.name} className="h-full w-full object-cover" />
+              <img src={slide.image} alt={slide.name} className="w-full object-cover" />
             </div>
           ))}
         </div>
 
-        <div className="absolute inset-x-0 bottom-6 flex justify-center space-x-2">
+        <div className="absolute inset-x-0 bottom-5 flex justify-center space-x-2">
           {slides.map((_, index) => (
             <button
               key={index}

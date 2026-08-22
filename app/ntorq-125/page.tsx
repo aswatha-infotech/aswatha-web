@@ -191,13 +191,14 @@ const engineSpec = [
   { label: "Max Torque", value: "10.6 Nm @ 5500 RPM" },
   { label: "Clutch", value: "Automatic Centrifugal Clutch" },
   { label: "Air Filter Type", value: "Dry Paper + Foam Filter" },
+  { label: "Acceleration", value: "0 to 60 in 8.9 seconds" },
+  { label: "Dual Riding Modes", value: "Street & Sport Mode" },
+  { label: "Top Speed", value: "94 km/h" },
 ];
 
 const electricalSpec = [
-  { label: "Battery", value: "MF 12 V, 4 AH" },
-  { label: "Headlamp", value: "LED - Clear lens with MFR" },
-  { label: "Taillamp", value: "Bulb with LED light guide" },
-  { label: "Starting System", value: "Electric Silent Start" },
+  { label: "Battery", value: "12V, 4 Ah MF" },
+  { label: "Head Lamp", value: "LED lamp" },
 ];
 
 const dimentionSpec = [
@@ -211,24 +212,28 @@ const dimentionSpec = [
 ];
 
 const chassisSpec = [
-  { label: "Suspension Front", value: "Telescopic Hydraulic" },
-  { label: "Suspension Rear", value: "Twin tube emulsion type shock absorber with 3 step adjustment" },
-  { label: "Under Seat Storage", value: "33 Ltrs" },
-  { label: "Glove Box in Front (open type)", value: "2 Ltrs" },
-  { label: "Fuel Tank Capacity", value: "5.1 Ltrs" },
+  { label: "Frame", value: "High Rigidity Under Bone Tubular Type" },
+  { label: "Dimensions", value: "1861 x 710 x 1164 mm" },
+  { label: "Wheelbase", value: "1285 mm" },
+  { label: "Ground Clearance", value: "155 mm" },
+  { label: "Kerb Weight", value: "109 Kg" },
+  { label: "Fuel Tank Capacity", value: "5.8 litre" },
 ];
 
 const brakesSpec = [
-  { label: "Front Braking", value: "220 mm disc" },
-  { label: "Rear Braking", value: "130 mm drum" },
-  { label: "Tyre Size (Tubeless tyres)", value: "90/90 -12 - 54 J (Front & Rear)" },
+  { label: "Front Suspension", value: "Telescopic Suspension with Hydraulic Dampers" },
+  { label: "Rear Suspension", value: "Coil spring with Hydraulic Dampers" },
+  { label: "Front Tyre", value: "Tubeless 100/80-12" },
+  { label: "Rear Tyre", value: "Tubeless 110/80-12" },
+  { label: "Front Brake", value: "220 mm Disc" },
+  { label: "Rear Brake", value: "130 mm Drum" },
 ];
 
 const galleryImages = [
-  "/img/PRODUCTS/SCOOTER/JUPITER125/Styling/1.webp",
-  "/img/PRODUCTS/SCOOTER/JUPITER125/Styling/2.avif",
-  "/img/PRODUCTS/SCOOTER/JUPITER125/Styling/3.webp",
-  "/img/PRODUCTS/SCOOTER/JUPITER125/Styling/4.avif",
+  "/img/PRODUCTS/SCOOTER/NTORQ125/Styling/1.webp",
+  "/img/PRODUCTS/SCOOTER/NTORQ125/Styling/2.webp",
+  "/img/PRODUCTS/SCOOTER/NTORQ125/Styling/3.webp",
+  "/img/PRODUCTS/SCOOTER/NTORQ125/Styling/4.webp",
 ];
 
 const stylingHighlights = [
@@ -336,7 +341,7 @@ export default function ApacheRTXPage() {
 
       <main className="pt-18">
         <section className="relative">
-          <img src="/img/HERO/20.webp" alt="TVS Apache RTX hero" className="h-[calc(100vh-96px)] w-full object-cover" />
+          <img src="/img/HERO/21.webp" alt="TVS Apache RTX hero" className="h-auto w-full object-contain" />
         </section>
 
         <section className="relative -mt-22 mb-10 px-4 sm:px-6 lg:px-8">
@@ -365,7 +370,7 @@ export default function ApacheRTXPage() {
                 </div>
               </div> */}
 
-              <div className="rounded-[32px] border border-slate-200 bg-slate-50 p-6 shadow-sm">
+              <div className="rounded-[32px] border border-slate-200 bg-slate-50 p-4 shadow-sm sm:p-6">
                 <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
                   <div className="space-y-4">
                     <div>
@@ -391,7 +396,7 @@ export default function ApacheRTXPage() {
                       </div>
                     </div>
 
-                    <div className="grid gap-3 sm:grid-cols-3">
+                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                       {activeColorGroup.options.map((color) => (
                         <button
                           key={color.name}
@@ -425,7 +430,7 @@ export default function ApacheRTXPage() {
                     <div>
                       <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Preview</p>
                       <div className="mt-5 overflow-hidden rounded-[28px] bg-[#fff] shadow-lg">
-                        <img src={selectedColorImage} alt={`Apache RTX ${selectedColor.name}`} className="h-100 w-full object-cover" />
+                        <img src={selectedColorImage} alt={`Apache RTX ${selectedColor.name}`} className="h-64 w-full object-contain sm:h-80 lg:h-100" />
                       </div>
                     </div>
                   </div>
@@ -553,15 +558,7 @@ export default function ApacheRTXPage() {
                     </div>
                   ))}
                 </div>
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 mt-10">Dimensions</p>
-                <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                  {dimentionSpec.map((spec) => (
-                    <div key={spec.label} className="rounded-[20px] border border-slate-200 bg-white p-4">
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500">{spec.label}</p>
-                      <p className="mt-3 text-sm font-semibold text-slate-600">{spec.value}</p>
-                    </div>
-                  ))}
-                </div>
+                
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 mt-10">Chassis and Suspension</p>
                 <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                   {chassisSpec.map((spec) => (
@@ -574,7 +571,7 @@ export default function ApacheRTXPage() {
                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 mt-10">Type, Wheel & Brakes</p>
                 <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                   {brakesSpec.map((spec) => (
-                    <div key={spec.label} className="rounded-[20px] border border-slate-200 bg-white p-4">
+                    <div key={`${spec.label}-${spec.value}`} className="rounded-[20px] border border-slate-200 bg-white p-4">
                       <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500">{spec.label}</p>
                       <p className="mt-3 text-sm font-semibold text-slate-600">{spec.value}</p>
                     </div>
@@ -591,12 +588,12 @@ export default function ApacheRTXPage() {
           <div className="mx-auto max-w-7xl">
             <div className="mb-10">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#DC4226]">Gallery</p>
-              <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">TVS Jupiter 125 in motion</h2>
+              <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">TVS Ntorq 125 in motion</h2>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {galleryImages.map((src, index) => (
                 <div key={index} className="overflow-hidden rounded-[32px] bg-white shadow-sm">
-                  <img src={src} alt={`TVS Jupiter gallery ${index + 1}`} className="h-56 w-full object-cover" />
+                  <img src={src} alt={`TVS Ntorq 125 gallery ${index + 1}`} className="h-56 w-full object-cover" />
                 </div>
               ))}
             </div>

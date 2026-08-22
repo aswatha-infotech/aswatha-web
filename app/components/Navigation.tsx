@@ -5,11 +5,10 @@ import Link from "next/link";
 
 const navLinks = [
   { href: "#home", label: "Home" },
-  { href: "#offers", label: "Offers" },
-  { href: "#accessories", label: "Accessories" },
-  { href: "#events", label: "Events" },
-  { href: "#aboutus", label: "Aboutus" },
-  { href: "#contactus", label: "Contactus" },
+  { href: "/offers", label: "Offers" },
+  { href: "/events", label: "Events" },
+  { href: "/aboutus", label: "Aboutus" },
+  { href: "/contactus", label: "Contactus" },
 ];
 
 const productCategories = ["Motorcycles", "Scooters", "Electric", "Mopeds"];
@@ -35,7 +34,7 @@ const productMenuItems = [
   { name: "TVS Jupiter", category: "Scooters", image: "/img/PRODUCTS/SCOOTER/JUPITER/jupiter.webp", href: "/tvs-jupiter" },
   { name: "TVS Jupiter 125", category: "Scooters", image: "/img/PRODUCTS/SCOOTER/JUPITER125/jupiter-125.webp", href: "/tvs-jupiter-125" },
   { name: "TVS NTorq 125", category: "Scooters", image: "/img/PRODUCTS/SCOOTER/NTORQ125/Ntorq.webp", href: "/ntorq-125" },
-  { name: "TVS NTorq 150", category: "Scooters", image: "/img/PRODUCTS/SCOOTER/NTORQ150/Ntorq-150.webp", href: "#vehicles" },
+  { name: "TVS NTorq 150", category: "Scooters", image: "/img/PRODUCTS/SCOOTER/NTORQ150/Ntorq-150.webp", href: "/ntorq-150" },
   { name: "TVS Zest 110", category: "Scooters", image: "/img/PRODUCTS/SCOOTER/ZEST/zest.webp", href: "#vehicles" },
   { name: "iQube", category: "Electric", image: "/img/PRODUCTS/EV/IQUBE/Tvs-iqube.webp", href: "#vehicles" },
   { name: "Orbiter", category: "Electric", image: "/img/PRODUCTS/EV/ORBITER/TVS-Orbiter.webp", href: "#vehicles" },
@@ -44,6 +43,8 @@ const productMenuItems = [
 
 export default function Navigation() {
   const [productsMenuOpen, setProductsMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState(productCategories[0]);
   const closeTimeoutRef = useRef<number | null>(null);
 
@@ -75,15 +76,20 @@ export default function Navigation() {
     }, 150);
   };
 
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setMobileProductsOpen(false);
+  };
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 w-full border-b border-slate-200 bg-white shadow-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="#" className="flex items-center gap-3">
-          <img src="/img/LOGO/aswatha-logo.png" alt="Aswatha TVS Logo" className="h-10 w-auto object-contain" />
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
+        <Link href="/" className="flex min-w-0 items-center gap-3" onClick={closeMobileMenu}>
+          <img src="/img/LOGO/aswatha-logo.png" alt="Aswatha TVS Logo" className="h-9 w-auto max-w-[180px] object-contain sm:h-10" />
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-medium text-slate-700 md:flex">
-          <Link href="#home" className="transition hover:text-slate-950">
+          <Link href="/" className="transition hover:text-slate-950">
             Home
           </Link>
 
@@ -145,10 +151,82 @@ export default function Navigation() {
           ))}
         </nav>
 
-        <Link href="#book-ride" className="rounded-full bg-[#183883] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#142f68]">
+        <Link href="#book-ride" className="hidden rounded-full bg-[#183883] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#142f68] md:inline-flex">
           Book Test Ride Now
         </Link>
+
+        <button
+          type="button"
+          aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={mobileMenuOpen}
+          onClick={() => setMobileMenuOpen((current) => !current)}
+          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-800 transition hover:border-slate-400 md:hidden"
+        >
+          <span className="sr-only">{mobileMenuOpen ? "Close menu" : "Open menu"}</span>
+          <span aria-hidden="true" className="flex flex-col gap-1.5">
+            <span className="h-0.5 w-5 bg-current" />
+            <span className="h-0.5 w-5 bg-current" />
+            <span className="h-0.5 w-5 bg-current" />
+          </span>
+        </button>
       </div>
+
+      {mobileMenuOpen && (
+        <div className="max-h-[calc(100vh-72px)] overflow-y-auto border-t border-slate-200 bg-white px-4 pb-6 pt-3 shadow-xl md:hidden">
+          <nav className="mx-auto max-w-7xl space-y-1 text-base font-medium text-slate-800" aria-label="Mobile navigation">
+            <Link href="/" onClick={closeMobileMenu} className="block rounded-xl px-4 py-3 hover:bg-slate-50">
+              Home
+            </Link>
+            <button
+              type="button"
+              aria-expanded={mobileProductsOpen}
+              onClick={() => setMobileProductsOpen((current) => !current)}
+              className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left hover:bg-slate-50"
+            >
+              Products <span aria-hidden="true">{mobileProductsOpen ? "−" : "+"}</span>
+            </button>
+
+            {mobileProductsOpen && (
+              <div className="space-y-3 rounded-2xl bg-slate-50 p-3">
+                <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+                  {productCategories.map((category) => (
+                    <button
+                      key={category}
+                      type="button"
+                      onClick={() => setActiveCategory(category)}
+                      className={`shrink-0 rounded-full px-3 py-2 text-xs font-semibold ${
+                        activeCategory === category ? "bg-[#183883] text-white" : "bg-white text-slate-600"
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {visibleProducts.map((item) => (
+                    <Link key={item.name} href={item.href} onClick={closeMobileMenu} className="rounded-xl bg-white p-2 text-center text-xs font-semibold text-slate-800">
+                      <img src={item.image} alt={item.name} className="mb-2 h-20 w-full rounded-lg object-contain" />
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+                <Link href="#vehicles" onClick={closeMobileMenu} className="block rounded-full bg-[#183883] px-4 py-3 text-center text-sm font-semibold text-white">
+                  Explore All Vehicles
+                </Link>
+              </div>
+            )}
+
+            {navLinks.slice(1).map((link) => (
+              <Link key={link.href} href={link.href} onClick={closeMobileMenu} className="block rounded-xl px-4 py-3 hover:bg-slate-50">
+                {link.label}
+              </Link>
+            ))}
+            <Link href="#book-ride" onClick={closeMobileMenu} className="mt-3 block rounded-full bg-[#183883] px-4 py-3 text-center text-sm font-semibold text-white">
+              Book Test Ride Now
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
