@@ -48,7 +48,7 @@ const vehicles: Vehicle[] = [
     price: "₹ 80,000 /-",
     description: "Comfort-focused and ideal for daily rides.",
     brand: "/img/PRODUCTS/SCOOTER/JUPITER/TVS-Jupiter-logo.svg",
-    picture: "/img/PRODUCTS/SCOOTER/JUPITER/jupiter.webp",
+    picture: "/img/PRODUCTS/SCOOTER/JUPITER/Jupiter.webp",
   },
   {
     name: "TVS Jupiter 125",
@@ -59,7 +59,7 @@ const vehicles: Vehicle[] = [
     price: "₹ 85,000 /-",
     description: "A stylish upgrade with better performance and space.",
     brand: "/img/PRODUCTS/SCOOTER/JUPITER125/jupiter-125-logo.png",
-    picture: "/img/PRODUCTS/SCOOTER/JUPITER125/jupiter-125.webp",
+    picture: "/img/PRODUCTS/SCOOTER/JUPITER125/Jupiter-125.webp",
   },
   {
     name: "TVS NTorq 125",
