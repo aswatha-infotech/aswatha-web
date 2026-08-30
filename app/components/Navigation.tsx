@@ -7,8 +7,8 @@ const navLinks = [
   { href: "#home", label: "Home" },
   { href: "/offers", label: "Offers" },
   { href: "/events", label: "Events" },
-  { href: "/aboutus", label: "Aboutus" },
-  { href: "/contactus", label: "Contactus" },
+  { href: "/aboutus", label: "About Us" },
+  { href: "/contactus", label: "Contact Us" },
 ];
 
 const productCategories = ["Motorcycles", "Scooters", "Electric", "Mopeds"];
@@ -85,7 +85,7 @@ export default function Navigation() {
     <header className="fixed inset-x-0 top-0 z-50 w-full border-b border-slate-200 bg-white shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
         <Link href="/" className="flex min-w-0 items-center gap-3" onClick={closeMobileMenu}>
-          <img src="/img/LOGO/aswatha-logo.png" alt="Aswatha TVS Logo" className="h-9 w-auto max-w-[180px] object-contain sm:h-10" />
+          <img src="/img/LOGO/aswatha-logo.png" alt="Aswatha TVS Logo" className="h-9 w-auto max-w-[320px] object-contain sm:h-10" />
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-medium text-slate-700 md:flex">

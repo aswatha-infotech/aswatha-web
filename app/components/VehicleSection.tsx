@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 
 type VehicleCategory = "Motorcycle" | "Moped" | "Scooter" | "Electric";
 
@@ -14,6 +15,7 @@ type Vehicle = {
   description: string;
   brand: string;
   picture: string;
+  link: string;
 };
 
 const vehicles: Vehicle[] = [
@@ -27,6 +29,7 @@ const vehicles: Vehicle[] = [
     description: "Reliable and practical for everyday city commuting.",
     brand: "/img/PRODUCTS/MOPED/XL/TVS-XL-100-logo.svg",
     picture: "/img/PRODUCTS/MOPED/XL/TVS-xl-100.webp",
+    link: "/tvs-xl100",
   },
   {
     name: "TVS Zest 110",
@@ -38,6 +41,7 @@ const vehicles: Vehicle[] = [
     description: "A compact scooter built for smooth urban mobility.",
     brand: "/img/PRODUCTS/SCOOTER/ZEST/TVS-Zest-110-logo.svg",
     picture: "/img/PRODUCTS/SCOOTER/ZEST/zest.webp",
+    link: "/tvs-zest-110",
   },
   {
     name: "TVS Jupiter",
@@ -49,6 +53,7 @@ const vehicles: Vehicle[] = [
     description: "Comfort-focused and ideal for daily rides.",
     brand: "/img/PRODUCTS/SCOOTER/JUPITER/TVS-Jupiter-logo.svg",
     picture: "/img/PRODUCTS/SCOOTER/JUPITER/Jupiter.webp",
+    link: "/tvs-jupiter",
   },
   {
     name: "TVS Jupiter 125",
@@ -60,6 +65,7 @@ const vehicles: Vehicle[] = [
     description: "A stylish upgrade with better performance and space.",
     brand: "/img/PRODUCTS/SCOOTER/JUPITER125/jupiter-125-logo.png",
     picture: "/img/PRODUCTS/SCOOTER/JUPITER125/Jupiter-125.webp",
+    link: "/tvs-jupiter-125",
   },
   {
     name: "TVS NTorq 125",
@@ -71,6 +77,7 @@ const vehicles: Vehicle[] = [
     description: "Sporty design with lively performance and smart features.",
     brand: "/img/PRODUCTS/SCOOTER/NTORQ125/TVS-NTorq-125-logo.svg",
     picture: "/img/PRODUCTS/SCOOTER/NTORQ125/Ntorq.webp",
+    link: "/tvs-ntorq-125",
   },
   {
     name: "TVS NTorq 150",
@@ -82,6 +89,7 @@ const vehicles: Vehicle[] = [
     description: "A bold scooter with stronger road presence.",
     brand: "/img/PRODUCTS/SCOOTER/NTORQ150/Ntorq-150-logo.webp",
     picture: "/img/PRODUCTS/SCOOTER/NTORQ150/Ntorq-150.webp",
+    link: "/tvs-ntorq-150",
   },
   {
     name: "iQube",
@@ -93,6 +101,7 @@ const vehicles: Vehicle[] = [
     description: "Electric convenience with a modern and efficient design.",
     brand: "/img/PRODUCTS/EV/IQUBE/TVS-IQube-logo.svg",
     picture: "/img/PRODUCTS/EV/IQUBE/Tvs-iqube.webp",
+    link: "/tvs-iqube",
   },
   {
     name: "Orbiter",
@@ -104,6 +113,7 @@ const vehicles: Vehicle[] = [
     description: "A clean, quiet ride tailored for smart commuting.",
     brand: "/img/PRODUCTS/EV/ORBITER/TVS-Orbiter-Logo.webp",
     picture: "/img/PRODUCTS/EV/ORBITER/TVS-Orbiter.webp",
+    link: "/tvs-orbiter",
   },
   {
     name: "TVS Sport",
@@ -115,6 +125,7 @@ const vehicles: Vehicle[] = [
     description: "Classic styling with dependable everyday performance.",
     brand: "/img/PRODUCTS/MC/SPORT/TVS-Sport-logo.svg",
     picture: "/img/PRODUCTS/MC/SPORT/TVS-Sport.webp",
+    link: "/tvs-sport",
   },
   {
     name: "TVS Star City Plus",
@@ -126,6 +137,7 @@ const vehicles: Vehicle[] = [
     description: "Comfortable and practical for daily city use.",
     brand: "/img/PRODUCTS/MC/STAR/TVS-Star-City-logo.svg",
     picture: "/img/PRODUCTS/MC/STAR/TVS-STAR-CIty.webp",
+    link: "/tvs-star-city-plus",
   },
   {
     name: "TVS Radeon",
@@ -137,6 +149,7 @@ const vehicles: Vehicle[] = [
     description: "A balanced commuter with a premium road feel.",
     brand: "/img/PRODUCTS/MC/RADEON/TVS-Radeon-logo.svg",
     picture: "/img/PRODUCTS/MC/RADEON/TVS-Radeon.webp",
+    link: "/tvs-radeon",
   },
   {
     name: "TVS Raider",
@@ -148,6 +161,7 @@ const vehicles: Vehicle[] = [
     description: "Sporty styling with strong performance and agility.",
     brand: "/img/PRODUCTS/MC/RAIDER/TVS-Raider-logo.svg",
     picture: "/img/PRODUCTS/MC/RAIDER/TVS-Raider.webp",
+    link: "/tvs-raider",
   },
   {
     name: "TVS Ronin",
@@ -159,6 +173,7 @@ const vehicles: Vehicle[] = [
     description: "A bold, premium motorcycle with standout design.",
     brand: "/img/PRODUCTS/MC/RONIN/TVS-Ronin-logo.svg",
     picture: "/img/PRODUCTS/MC/RONIN/TVS-Ronin.webp",
+    link: "/tvs-ronin",
   },
   {
     name: "TVS Apache RTR Series",
@@ -170,6 +185,7 @@ const vehicles: Vehicle[] = [
     description: "A refined streetbike with responsive performance.",
     brand: "/img/PRODUCTS/MC/APACHE/TVS-Apache-RTR-logo.svg",
     picture: "/img/PRODUCTS/MC/APACHE/Apache-RTR-200.webp",
+    link: "/tvs-apache-rtr-series",
   },
   {
     name: "TVS RTX",
@@ -181,6 +197,7 @@ const vehicles: Vehicle[] = [
     description: "Built for versatility with a commanding ride feel.",
     brand: "/img/PRODUCTS/MC/RTX/Apache-RTX-logo.webp",
     picture: "/img/PRODUCTS/MC/RTX/Apache-RTX.webp",
+    link: "/tvs-rtx",
   },
   {
     name: "TVS RR 310",
@@ -192,6 +209,7 @@ const vehicles: Vehicle[] = [
     description: "High-performance engineering for riders seeking excitement.",
     brand: "/img/PRODUCTS/MC/RR/TVS-Apache-RR-310-logo.svg",
     picture: "/img/PRODUCTS/MC/RR/RR-310.webp",
+    link: "/tvs-rr-310",
   },
   {
     name: "TVS RTR 310",
@@ -203,6 +221,7 @@ const vehicles: Vehicle[] = [
     description: "A race-inspired machine with refined control and power.",
     brand: "/img/PRODUCTS/MC/RTR/TVS-Apache-RTR-310-logo.svg",
     picture: "/img/PRODUCTS/MC/RTR/RTR-310.webp",
+    link: "/tvs-rtr-310",
   },
 ];
 
@@ -226,16 +245,22 @@ export default function VehicleSection() {
   }, []);
 
   function handlePointerDown(e: React.PointerEvent) {
-    // allow native touch scrolling; only handle mouse/pen drag for desktop drag-to-scroll
-    if (e.pointerType === "touch") return;
+    // Don't capture pointer events on buttons or interactive elements
+    const target = e.target as HTMLElement;
+    if (target.closest("button") || target.closest("a") || target.closest("input")) {
+      return;
+    }
+
     const el = scrollerRef.current;
     if (!el) return;
     isDownRef.current = true;
     startXRef.current = e.clientX;
     scrollLeftRef.current = el.scrollLeft;
     if (el.setPointerCapture) el.setPointerCapture(e.pointerId as any);
-    el.classList.add("cursor-grabbing");
-    document.body.style.userSelect = "none";
+    if (e.pointerType !== "touch") {
+      el.classList.add("cursor-grabbing");
+      document.body.style.userSelect = "none";
+    }
   }
 
   function handlePointerMove(e: React.PointerEvent) {
@@ -252,22 +277,36 @@ export default function VehicleSection() {
     try {
       if (el && el.releasePointerCapture) el.releasePointerCapture(e.pointerId as any);
     } catch {}
-    el?.classList.remove("cursor-grabbing");
-    document.body.style.userSelect = "auto";
+    if (e.pointerType !== "touch") {
+      el?.classList.remove("cursor-grabbing");
+      document.body.style.userSelect = "auto";
+    }
   }
 
   function handlePointerLeave(e: React.PointerEvent) {
     // treat leaving as end of drag
     const el = scrollerRef.current;
     isDownRef.current = false;
-    el?.classList.remove("cursor-grabbing");
-    document.body.style.userSelect = "auto";
+    if (e.pointerType !== "touch") {
+      el?.classList.remove("cursor-grabbing");
+      document.body.style.userSelect = "auto";
+    }
   }
 
   function scrollByAmount(amount: number) {
     const el = scrollerRef.current;
     if (!el) return;
     el.scrollTo({ left: el.scrollLeft + amount, behavior: "smooth" });
+  }
+
+  function handleTestRideClick() {
+    // Scroll to the test ride form section
+    setTimeout(() => {
+      const element = document.getElementById("test-ride-form");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 0);
   }
 
   return (
@@ -320,7 +359,7 @@ export default function VehicleSection() {
 
           <div
             className="-mx-4 overflow-x-auto px-4 no-scrollbar cursor-grab"
-            style={{ touchAction: 'pan-y' }}
+            style={{ touchAction: 'manipulation' }}
             ref={scrollerRef}
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
@@ -366,10 +405,17 @@ export default function VehicleSection() {
                   </div>
 
                   <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                    <button className="rounded-full border border-slate-300 bg-white py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-100">
+                    <Link
+                      href={vehicle.link}
+                      className="rounded-full border border-slate-300 bg-white py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 text-center"
+                    >
                       Know More
-                    </button>
-                    <button className="rounded-full bg-[#183883] py-2 text-sm font-semibold text-white transition hover:bg-[#c13b22]">
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={handleTestRideClick}
+                      className="rounded-full bg-[#183883] py-2 text-sm font-semibold text-white transition hover:bg-[#c13b22]"
+                    >
                       Test Ride
                     </button>
                   </div>

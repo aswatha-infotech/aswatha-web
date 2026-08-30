@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import TestRideForm from "../components/TestRideForm";
 
 const offerImage = "/img/OFFERS/ASWATHA%20COMING%20SOON%20INSTA.png";
 const offerPreviewImage = "/img/OFFERS/gold_coin_offer.webp";
@@ -39,17 +40,18 @@ export default function OffersPage() {
                 This exclusive offer is available for a limited number of pre-booking customers. Speak with our team to confirm eligibility, availability, and offer terms.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Link href="/#book-ride" className="inline-flex items-center justify-center rounded-full bg-[#DC4226] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#c13b22]">
-                  Book a test ride
-                </Link>
-                <Link href="/" className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-500">
+                <a href="#test-ride-form" className="inline-flex items-center justify-center rounded-full bg-[#DC4226] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#c13b22]">
+                  Book Test Ride
+                </a>
+                {/* <Link href="/" className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-500">
                   Explore vehicles
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
         </section>
       </main>
+      <TestRideForm />
       <Footer />
     </>
   );

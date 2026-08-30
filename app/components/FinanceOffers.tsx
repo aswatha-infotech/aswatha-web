@@ -142,12 +142,12 @@ export default function FinanceOffers() {
             </div>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              <button className="rounded-full bg-[#DC4226] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#c13b22]">
-                Apply for Finance Now
-              </button>
-              <button className="rounded-full border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400">
+              <a
+                href="tel:8270015000"
+                className="rounded-full bg-[#DC4226] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#c13b22] text-center"
+              >
                 Talk to a Specialist
-              </button>
+              </a>
             </div>
           </div>
         </div>

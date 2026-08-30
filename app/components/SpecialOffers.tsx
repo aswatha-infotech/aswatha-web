@@ -71,7 +71,7 @@ export default function SpecialOffers() {
                 <p className="mb-3 text-xs text-slate-500">{offer.subtitle}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-semibold text-slate-900">{offer.price}</span>
-                  <button className="rounded-full bg-[#DC4226] px-3 py-1 text-xs font-semibold text-white hover:bg-[#c13b22]">Redeem</button>
+                  {/* <button className="rounded-full bg-[#DC4226] px-3 py-1 text-xs font-semibold text-white hover:bg-[#c13b22]">Redeem</button> */}
                 </div>
               </article>
             ))}

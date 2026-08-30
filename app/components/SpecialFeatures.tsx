@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   WrenchIcon,
   TruckIcon,
@@ -7,6 +8,7 @@ import {
   CalendarDaysIcon,
   ShieldCheckIcon,
   DevicePhoneMobileIcon,
+  ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 
 const FEATURES = [
@@ -43,6 +45,8 @@ const FEATURES = [
 ];
 
 export default function SpecialFeatures() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
   return (
     <section id="special-features" className="bg-white px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -53,18 +57,36 @@ export default function SpecialFeatures() {
 
         <div className="mx-auto max-w-6xl mt-12">
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-6 items-start justify-center text-center">
-            {FEATURES.map((f) => {
+            {FEATURES.map((f, index) => {
               const Icon = f.Icon;
+              const isExpanded = expandedIndex === index;
               return (
-                <div key={f.title} className="flex flex-col items-center gap-3">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-500 shadow-sm">
-                    <Icon className="h-7 w-7" aria-hidden="true" />
+                <button
+                  key={f.title}
+                  type="button"
+                  onClick={() => setExpandedIndex(isExpanded ? null : index)}
+                  className="w-full flex flex-col items-center gap-3 cursor-pointer group"
+                >
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-500 shadow-sm transition group-hover:bg-slate-100 group-hover:border-slate-300">
+                    <Icon className="h-7 w-7 transition group-hover:text-slate-700" aria-hidden="true" />
                   </div>
                   <div className="max-w-[140px]">
                     <h4 className="text-sm font-semibold text-slate-500">{f.title}</h4>
-                    {/* <p className="mt-1 text-xs text-slate-500">{f.desc}</p> */}
+                    <div className="flex justify-center">
+                      <ChevronDownIcon
+                        className={`h-4 w-4 mt-2 text-slate-400 transition-transform duration-300 ${
+                          isExpanded ? "rotate-180" : ""
+                        }`}
+                        aria-hidden="true"
+                      />
+                    </div>
+                    {isExpanded && (
+                      <p className="mt-3 text-xs text-slate-600 leading-relaxed animate-in fade-in duration-200">
+                        {f.desc}
+                      </p>
+                    )}
                   </div>
-                </div>
+                </button>
               );
             })}
           </div>

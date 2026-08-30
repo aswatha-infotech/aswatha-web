@@ -28,7 +28,7 @@ export default function Location() {
 
               <div className="mt-4 flex gap-3">
                 <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=10.9962393,76.9800123"
+                  href="https://www.google.com/maps/place/1274,+Trichy+Rd,+Nadar+Colony,+Coimbatore,+Tamil+Nadu+641018/@10.9962393,76.9800123,967m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3ba859bc40e7d613:0x97013b1e4a323bb9!8m2!3d10.9962393!4d76.9800123!16s%2Fg%2F11vkh9jr8x?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center rounded-full bg-[#183883] px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#0f2a5a]"

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import TestRideForm from "../components/TestRideForm";
 
 const events = [
   {
@@ -39,8 +40,8 @@ export default function EventsPage() {
               <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
                 Discover test ride days, showroom experiences, and rider gatherings happening at Aswatha TVS.
               </p>
-              <Link href="/#book-ride" className="mt-8 inline-flex items-center justify-center rounded-full bg-[#DC4226] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#c13b22]">
-                Book a test ride
+              <Link href="#test-ride-form" className="mt-8 inline-flex items-center justify-center rounded-full bg-[#DC4226] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#c13b22]">
+                Book Test Ride
               </Link>
             </div>
             <div className="overflow-hidden rounded-[28px] border border-white/15 bg-slate-900/60 shadow-2xl shadow-black/30">
@@ -73,6 +74,7 @@ export default function EventsPage() {
           </div>
         </section>
       </main>
+      <TestRideForm />
       <Footer />
     </>
   );
