@@ -19,6 +19,7 @@ export default function Footer() {
               <li><a className="text-slate-400 hover:text-white transition" href="#vehicles">Vehicles</a></li>
               <li><a className="text-slate-400 hover:text-white transition" href="#special-features">Features</a></li>
               <li><a className="text-slate-400 hover:text-white transition" href="#finance-offers">Finance Offers</a></li>
+              <li><a className="text-slate-400 hover:text-white transition" href="/blog">Blog</a></li>
               <li><a className="text-slate-400 hover:text-white transition" href="#test-ride-form">Book Test Ride</a></li>
             </ul>
           </div>

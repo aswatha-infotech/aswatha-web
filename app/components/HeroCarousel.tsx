@@ -117,18 +117,22 @@ export default function HeroCarousel() {
   return (
     <div className="bg-white">
       <Navigation />
-      <section className="relative mt-14 h-[70vh] overflow-hidden bg-white sm:mt-20 sm:h-[80vh] lg:mt-18 lg:h-[80vh]">
-        <div className="absolute inset-0">
+      <section className="relative mt-14 overflow-hidden bg-white sm:mt-20 lg:mt-18">
+        <div className="relative w-full">
           {slides.map((slide, index) => (
             <div
               key={slide.name}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
-                index === activeIndex ? "opacity-100" : "pointer-events-none opacity-0"
+              className={`w-full transition-opacity duration-1000 ${
+                index === activeIndex ? "opacity-100" : "pointer-events-none absolute inset-0 opacity-0"
               }`}
             >
-              <picture>
+              <picture className="block w-full">
                 <source media="(max-width: 640px)" srcSet={slide.mobileImage} />
-                <img src={slide.image} alt={slide.name} className="w-full object-cover" />
+                <img
+                  src={slide.image}
+                  alt={slide.name}
+                  className="h-auto w-full object-contain"
+                />
               </picture>
             </div>
           ))}
