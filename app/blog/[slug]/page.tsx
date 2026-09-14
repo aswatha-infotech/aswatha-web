@@ -16,6 +16,9 @@ export default async function BlogPostPage({
     notFound();
   }
 
+  const currentIndex = posts.findIndex((item) => item.slug === slug);
+  const nextPost = posts[(currentIndex + 1) % posts.length];
+
   return (
     <>
       <Navigation />
@@ -45,9 +48,77 @@ export default async function BlogPostPage({
             </div>
 
             <div className="mt-8 space-y-5 text-base leading-8 text-slate-700">
-              {post.content.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+              {post.content.map((block, index) => {
+                if (block.type === "heading") {
+                  const HeadingTag = (block.level === 3 ? "h3" : "h2") as "h2" | "h3";
+
+                  return (
+                    <HeadingTag
+                      key={`${block.type}-${block.text}-${index}`}
+                      className="mt-8 text-2xl font-bold tracking-tight text-slate-900"
+                    >
+                      {block.text}
+                    </HeadingTag>
+                  );
+                }
+
+                if (block.type === "list") {
+                  const ListTag = block.ordered ? "ol" : "ul";
+
+                  return (
+                    <ListTag
+                      key={`${block.type}-${index}`}
+                      className={`space-y-2 pl-6 ${block.ordered ? "list-decimal" : "list-disc"} text-slate-700`}
+                    >
+                      {block.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ListTag>
+                  );
+                }
+
+                if (block.type === "paragraph") {
+                  const phoneMatch = block.text.match(/(\+?\d[\d\s()-]{7,}\d)/);
+
+                  if (phoneMatch) {
+                    const phoneNumber = phoneMatch[0].replace(/\s+/g, "").replace(/[()\-]/g, "");
+                    const beforeText = block.text.slice(0, block.text.indexOf(phoneMatch[0]));
+                    const afterText = block.text.slice(block.text.indexOf(phoneMatch[0]) + phoneMatch[0].length);
+
+                    return (
+                      <p key={`${block.type}-${index}`} className="text-base leading-8 text-slate-700">
+                        {beforeText}
+                        <a href={`tel:${phoneNumber}`} className="font-semibold text-[#183883] underline underline-offset-2 hover:text-[#0f2a5a]">
+                          {phoneMatch[0]}
+                        </a>
+                        {afterText}
+                      </p>
+                    );
+                  }
+                }
+
+                return (
+                  <p key={`${block.type}-${index}`} className="text-base leading-8 text-slate-700">
+                    {block.text}
+                  </p>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-[28px] border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/50">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#DC4226]">Next blog</p>
+                <h2 className="mt-2 text-2xl font-bold text-slate-950">{nextPost.title}</h2>
+              </div>
+
+              <Link
+                href={`/blog/${nextPost.slug}`}
+                className="inline-flex items-center justify-center rounded-full bg-[#183883] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#102d69]"
+              >
+                Read next article →
+              </Link>
             </div>
           </div>
         </article>
