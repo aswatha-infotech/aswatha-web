@@ -15,6 +15,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Aswatha TVS | Premium Ride Experience",
   description: "Premium Two Wheeler Showroom in Coimbatore | Aswatha TVS",
+  icons: {
+    icon: [
+      { url: "/img/LOGO/favicon/favicon.ico", rel: "icon" },
+      { url: "/img/LOGO/favicon/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/img/LOGO/favicon/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/img/LOGO/favicon/favicon.ico",
+    apple: "/img/LOGO/favicon/apple-touch-icon.png",
+  },
+  manifest: "/img/LOGO/favicon/site.webmanifest",
 };
 
 export default function RootLayout({
