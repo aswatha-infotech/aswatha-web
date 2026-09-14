@@ -1,8 +1,58 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import { notFound } from "next/navigation";
 import { posts } from "../data";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = posts.find((item) => item.slug === slug);
+
+  if (!post) {
+    return {
+      title: "Blog | Aswatha TVS",
+    };
+  }
+
+  const canonicalUrl = `https://www.aswathatvs.com/blog/${post.slug}`;
+  const socialImageUrl = `https://www.aswathatvs.com${post.coverImage}`;
+
+  return {
+    title: `${post.title} | Aswatha TVS`,
+    description: post.excerpt,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: canonicalUrl,
+      siteName: "Aswatha TVS",
+      type: "article",
+      publishedTime: new Date(post.date).toISOString(),
+      authors: [post.author],
+      images: [
+        {
+          url: socialImageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [socialImageUrl],
+    },
+  };
+}
 
 export default async function BlogPostPage({
   params,

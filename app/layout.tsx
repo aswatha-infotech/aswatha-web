@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.aswathatvs.com"),
   title: "Aswatha TVS | Premium Ride Experience",
   description: "Premium Two Wheeler Showroom in Coimbatore | Aswatha TVS",
   icons: {
