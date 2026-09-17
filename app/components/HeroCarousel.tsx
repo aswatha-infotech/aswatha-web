@@ -10,8 +10,8 @@ const slides = [
     badge: "Racing DNA",
     range: "310cc",
     topSpeed: "160 km/h",
-    image: "/img/HERO/0.webp",
-    mobileImage: "/img/HERO/Mobile/m-0.jpg",
+    image: "/img/HERO/hero.webp",
+    mobileImage: "/img/HERO/Mobile/m.webp",
   },
   // {
   //   name: "Apache RR310",
@@ -138,7 +138,7 @@ export default function HeroCarousel() {
           ))}
         </div>
 
-        <div className="absolute inset-x-0 bottom-5 flex justify-center space-x-2">
+        {/* <div className="absolute inset-x-0 bottom-5 flex justify-center space-x-2">
           {slides.map((_, index) => (
             <button
               key={index}
@@ -150,7 +150,7 @@ export default function HeroCarousel() {
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
-        </div>
+        </div> */}
       </section>
     </div>
   );
