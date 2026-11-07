@@ -10,8 +10,8 @@ const slides = [
     badge: "Racing DNA",
     range: "310cc",
     topSpeed: "160 km/h",
-    image: "/img/HERO/hero.webp",
-    mobileImage: "/img/HERO/Mobile/m.webp",
+    image: "/img/HERO/H1.webp",
+    mobileImage: "/img/HERO/Mobile/M2.jpg",
   },
   // {
   //   name: "Apache RR310",

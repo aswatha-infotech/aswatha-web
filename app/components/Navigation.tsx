@@ -7,6 +7,7 @@ const navLinks = [
   { href: "#home", label: "Home" },
   { href: "/offers", label: "Offers" },
   { href: "/events", label: "Events" },
+  { href: "/diwali-wishes", label: "Diwali Wishes" },
   { href: "/blog", label: "Blog" },
   { href: "/aboutus", label: "About Us" },
   { href: "/contactus", label: "Contact Us" },
